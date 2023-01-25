@@ -19,12 +19,19 @@ docker tag rest-api:latest localhost:5000/scproj/rest-api:latest
 docker image push localhost:5000/scproj/rest-api:latest
 ```
 
-## Convert docker compose file to kubernetes services and deployments
+## Convert docker compose file to kubernetes services and deployments (TODO move files to dir)
+
 ```bash
-kompose convert
+mkdir k8s-specifications
+kompose convert -f docker-compose.yml -o k8s-specifications/
 ```
 
-## Kubectl apply
+## Kubectl apply (TODO instead of specifying each file use dir mentioned above)
 ```bash
 kubectl apply -f rest-api-service.yaml,db-service.yaml,rest-api-deployment.yaml,db-deployment.yaml,rest-api-claim0-persistentvolumeclaim.yaml
+```
+
+## Show pods
+```bash
+kubectl get pods
 ```
