@@ -10,6 +10,6 @@ spec:
     - name: "rest-api"
       port: 1337
       targetPort: 1337
-      #nodeport: 30007
+      nodePort: 30007 # expose this port to outside world. just for testing now as in the real app only web frontend should be open, right?
   selector:
       app: rest-api
