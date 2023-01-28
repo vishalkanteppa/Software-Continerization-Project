@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: rest-api-deployment
+    labels:
+      app: rest-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rest-api
+  template:
+    metadata:
+      labels:
+        app: rest-api
+    spec:
+      containers:
+        - name: rest-api
+          image: localhost:5000/scproj/rest-api:latest
+          env:
+            - name: MONGODB_USERNAME
+              value: root
+            - name: MONGODB_PASSWORD
+              value: example1337
+          ports:
+            - containerPort: 1337
+              name: rest-api
