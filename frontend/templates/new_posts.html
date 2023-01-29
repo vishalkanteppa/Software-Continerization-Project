@@ -27,11 +27,35 @@
         top: 50%;
         left: 40%;
     }
+
+    .blur {
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgba(0, 0, 0, 0);
+        top: 30%;
+        left: 19%;
+        background-color: rgba(255, 255, 183, 0.6);
+        /* backdrop-filter: blur(5px); */
+    }
+
+    .textonblur{
+        position: absolute;
+        top: 30%;
+        left: 20%;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(82, 47, 0);
+    }
 </style>
 
 <body>
-    
+
     <!-- Button trigger modal -->
+    <h1 class=" center blur"> Welcome! You can create a new post or view all created posts.... </h1>
+    <h1 class="textonblur">Welcome! You can create a new post or view all created posts </h1>
     <button type="button" class="btn btn-secondary center" data-toggle="modal" data-target="#exampleModal">
         New Post
     </button>
@@ -52,7 +76,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="/create_new_posts" method="post">
+                <form action="/create_new_post" method="post">
 
                     <div class="modal-body">
                         <label>Name of Post <input type="text" name="name" placeholder="Name"></label>
@@ -60,7 +84,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
 

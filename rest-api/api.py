@@ -45,9 +45,14 @@ def list_top_posts():
 	return render_template("new_posts.html")
 	return json_util.dumps(result)
 
+
+@api.get('/all_posts')
+def show_all_posts():
+	return "A work in progress"
+
 @api.post("/create_new_post")
 def create_new_post():
-	request_data = request.get_json()
+	request_data = request.form()
 
 	print("AAAAAAAAAAAAAA")
 	print(request_data)
