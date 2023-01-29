@@ -1,10 +1,10 @@
-FROM python:3.9-slim
+FROM python:slim
 
 RUN apt-get update
 
-WORKDIR /api
+WORKDIR /app
 
-COPY requirements.txt /api/requirements.txt
+COPY requirements.txt /app/requirements.txt
 
 RUN pip install -r requirements.txt
 
@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 1337
 
-CMD ["gunicorn", "api:api", "-b", "0.0.0.0:1337", "--log-file", "-", "--access-logfile", "-", "--workers", "4", "--keep-alive", "0"]
+CMD ["gunicorn", "app:app", "-b", "0.0.0.0:1337", "--log-file", "/dev/termination-log", "--access-logfile", "/dev/termination-log", "--workers", "4", "--keep-alive", "0"]
