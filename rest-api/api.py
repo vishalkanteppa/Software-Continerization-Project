@@ -8,26 +8,26 @@ def get_post(post_id):
 
 import time
 import os
-# from pymongo import MongoClient
+from pymongo import MongoClient
 from flask import Flask, request, jsonify, render_template
 from bson import json_util
 
-# mongodb_username = os.getenv("MONGODB_USERNAME")
-# mongodb_password = os.getenv("MONGODB_PASSWORD")
+mongodb_username = os.getenv("MONGODB_USERNAME")
+mongodb_password = os.getenv("MONGODB_PASSWORD")
 
-# CONNECTION_STRING = "mongodb://" + mongodb_username + ":" + mongodb_password + "@database:27017"
+CONNECTION_STRING = "mongodb://" + mongodb_username + ":" + mongodb_password + "@database:27017"
 
 print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
-# client = MongoClient(CONNECTION_STRING, serverSelectionTimeoutMS=5000)
+client = MongoClient(CONNECTION_STRING, serverSelectionTimeoutMS=5000)
 
-# try:
-#     print(client.server_info())
-# except Exception:
-#     print("Unable to connect to the server.")
+try:
+    print(client.server_info())
+except Exception:
+    print("Unable to connect to the server.")
 
-# db = client["posts_db"]
-# posts_collection = db["posts"]
+db = client["posts_db"]
+posts_collection = db["posts"]
 
 api = Flask(__name__)
 
@@ -39,9 +39,9 @@ def list_top_posts():
 
 	print(1)
 
-	# for post in posts_collection.find().sort("time", -1):
-	# 	print(post)
-	# 	result.append(post)
+	for post in posts_collection.find().sort("time", -1):
+		print(post)
+		result.append(post)
 	return render_template("new_posts.html")
 	return json_util.dumps(result)
 
@@ -66,9 +66,9 @@ def create_new_post():
 		"time": time.time()
 	}
 
-	# post_id = posts_collection.insert_one(post_data).inserted_id
+	post_id = posts_collection.insert_one(post_data).inserted_id
 
-	# print(post_id)
+	print(post_id)
 
 	return jsonify({"success": True, "post_id": str(post_id)})
 
