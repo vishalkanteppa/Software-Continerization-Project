@@ -1,16 +1,8 @@
-"""
-from pymongo import MongoClient
-
-def post_post(post_content):
-
-def get_post(post_id):
-"""
-
 import time
 import os
 # from pymongo import MongoClient
 from flask import Flask, request, jsonify, render_template
-from bson import json_util
+# from bson import json_util
 
 print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
