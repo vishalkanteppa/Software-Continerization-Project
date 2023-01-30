@@ -26,4 +26,4 @@ def show_all_posts():
 
 
 if __name__ == "__main__":
-    api.run(host='0.0.0.0', port=1337, debug=True, threaded=True)
+    api.run(host='0.0.0.0', port=1338, debug=True, threaded=True)

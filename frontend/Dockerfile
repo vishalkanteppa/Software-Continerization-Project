@@ -10,7 +10,7 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-EXPOSE 1337
+EXPOSE 1338
 
 CMD ["flask", "run"]
 
