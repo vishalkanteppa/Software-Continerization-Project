@@ -42,7 +42,7 @@
         /* backdrop-filter: blur(5px); */
     }
 
-    .textonblur{
+    .textonblur {
         position: absolute;
         top: 30%;
         left: 20%;
@@ -76,11 +76,11 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="/create_new_post" method="post">
+                <form id="formid" action="/create_new_post" method="post">
 
                     <div class="modal-body">
-                        <label>Name of Post <input type="text" name="name" placeholder="Name"></label>
-                        <label>Content <textarea name="content" placeholder="Content"></textarea></label>
+                        <label>Name of Post <input id="name" type="text" name="name" placeholder="Name"></label>
+                        <label>Content <textarea id="content" name="content" placeholder="Content"></textarea></label>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -92,7 +92,8 @@
         </div>
     </div>
 </body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jQuery/3.3.1/jQuery.min.js">
+</script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
@@ -102,5 +103,25 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+
+<script>
+    $("#formid").submit(function (e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        var form = $(this);
+        var url = 'localhost:1338/create_new_post';
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                name: document.getElementById("name").value,
+                content: document.getElementById("content").value
+            },
+            success: function (data) {
+                alert("Succesfully created"); // show response 
+                //    window.location.href = ;
+            }
+        });
+    });
+</script>
 
 </html>

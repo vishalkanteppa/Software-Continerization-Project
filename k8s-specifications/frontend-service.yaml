@@ -10,6 +10,6 @@ spec:
     - name: "frontend"
       port: 1338
       targetPort: 1338
-      nodePort: 30007 # expose this port to outside world. just for testing now as in the real app only web frontend should be open, right?
+      nodePort: 30008 # expose this port to outside world. just for testing now as in the real app only web frontend should be open, right?
   selector:
       app: frontend
