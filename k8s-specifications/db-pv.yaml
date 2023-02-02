@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: db-pv
+spec:
+  capacity:
+    storage: 2Gi
+  #volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  #persistentVolumeReclaimPolicy: Recycle
+  #claimRef:
+  #  name: db-pvc
+  hostPath:
+    #type: DirectoryOrCreate
+    path: /opt/mongodb
+  storageClassName: microk8s-hostpath
