@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-frontend-node
+  labels:
+    app: web-frontend-node
+spec:
+  type: NodePort
+  ports:
+    - name: "web-serv"
+      port: 8080
+      targetPort: 8080
+      nodePort: 30008
+  selector:
+      app: web-frontend-node

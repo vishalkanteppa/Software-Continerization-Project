@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: web-frontend-node-deployment
+    labels:
+      app: web-frontend-node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-frontend-node
+  template:
+    metadata:
+      labels:
+        app: web-frontend-node
+    spec:
+      containers:
+        - name: web-frontend-node
+          image: localhost:5000/scproj/web-frontend-node:latest
+          ports:
+            - containerPort: 8080
+              name: webserv
