@@ -20,6 +20,8 @@ spec:
           envFrom:
             - secretRef:
                 name: db-secret
+            - configMapRef:
+                name: db-configmap
           ports:
             - containerPort: 1337
               name: rest-api

@@ -23,3 +23,10 @@ spec:
           ports:
             - containerPort: 27017
               name: mongodb
+          volumeMounts:
+            - name: db-data
+              mountPath: /data/db
+      volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: db-pvc
