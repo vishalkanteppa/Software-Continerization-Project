@@ -1,0 +1,15 @@
+{
+  "name": "web-front-end",
+  "version": "1.0.0",
+  "description": "SC Project web front end",
+  "author": "group",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "body-parser": "^1.20.1",
+    "axios": "^1.3.2"
+  }
+}
